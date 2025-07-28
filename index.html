@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/navStyles.css">
+    <link rel="stylesheet" href="styles/fonts.css">
+    <link rel="stylesheet" href="styles/generalStyles.css">
+    <link rel="stylesheet" href="styles/inputStyles.css">
+    <link rel="stylesheet" href="styles/resultStyles.css">
+    <link rel="stylesheet" href="styles/projectInfoStyles.css">
+    <title>Página Principal | VoltaPredic</title>
+</head>
+<body>
+    <div class="logo-container">
+        <img src="img/logo.png" alt="Logo" class="logo-container__logo">
+    </div>
+    <div class="log-in">
+        <p class="log-in__title">Iniciar sesión</p>
+        <form class="log-in__form">
+            <label for="username" id="user" class="form__username-label">Usuario</label>
+            <input type="text" id="username" class="form__username" placeholder="usuario" required>
+
+            <label for="password" id="pass" class="form__password-label">Contraseña</label>
+            <input type="password" id="password" class="form__password" minlength="8" placeholder="********" required>
+
+            <input type="submit" value="Iniciar sesion" class="form__submit">
+        </form>
+    </div>
+    <div class="container">
+        <p class="container__username"></p>
+        <p class="container__project"></p>
+        <!--
+        <div class="container__project-info-container">
+            <label for="PN" class="project-info-container__label">Nombre del proyecto</label>
+            <input type="text" class="project-info-container__name" id="PN" placeholder="Sin titulo" required>
+            <button class="project-info-container__gen-button">Generar informe</button>     
+        </div>
+        -->
+        <div class="container__nav-container">
+            <nav class="nav-container__nav">
+                <ul class="nav__list">
+                    <li class="list__item"><a href="#" class="item__link" id="TPC">Información Proyecto</a></li>
+                    <li class="list__item"><a href="#" class="item__link" id="DEVU">Sección Basica</a></li>
+                    <li class="list__item"><a href="#" class="item__link" id="ES">Sección Avanzada</a></li>
+                    <li class="list__item"><a href="#" class="item__link" id="UR">Generación de Informe</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="container__input-container">
+            <div class="input-container__inputs">
+                <!--
+                <div class="inputs__input-group">
+                    <label for="EP">AMPERIOS</label>
+                    <input type="text" id="EP" placeholder="Energía Eléctrica" required>
+                </div>
+            
+                <div class="inputs__input-group">
+                    <label for="CR">OHMS</label>
+                    <input type="text" id="CR" placeholder="Resistencia del cable" required>
+                </div>
+
+                <div class="inputs__input-group">
+                    <label for="T">HORAS</label>
+                    <input type="text" id="T" placeholder="Tiempo" required>
+                </div>
+
+                <div class="inputs__input-group">
+                    <label for="AT">°C</label>
+                    <input type="text" id="AT" placeholder="Temperatura ambiente" required>
+                </div>
+
+                <div class="inputs__input-group">
+                    <label for="MTC">--</label>
+                    <input type="" id="MTC" placeholder="Conductividad térmica del material" required>
+                </div>
+                -->
+            </div>
+            <!--
+            <button>Calcular</button>
+            -->
+        </div>
+        <div class="container__results-container">
+            <div class="results-container__results">
+                <p class="results__result-text">Los valores ingresados no son válidos</p>
+            </div>
+            <div class="results-container__warning">
+                <p class="results__result-warning">Los valores ingresados no son válidos</p>
+            </div> 
+            <div class="results-container__buttons">
+                <button class="buttons__save-btn">Guardar resultado</button>   
+            </div>
+        </div>    
+    </div>
+
+    <script src="scripts/index.js" type="module"></script>
+</body>
+</html>

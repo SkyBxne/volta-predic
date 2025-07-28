@@ -1,0 +1,97 @@
+* {
+    --color-1: #000814;
+    --color-2: #001D3D;
+    --color-3: #003566;
+    --color-4: #FFC300;
+    --color-5: #FFD60A;
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'unifixSP';
+    user-select: none;
+}
+
+body {
+    width: 100dvw;
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(var(--color-3), var(--color-2), #060b1c);
+}
+
+.container {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-top: var(--color-2) 7px solid;
+    border-radius: 15px;
+    position: relative;
+}
+
+.container__username {
+    position: absolute;
+    color: whitesmoke;
+    font-family: sans-serif;
+    top: 0;
+    left: 8px;
+    padding: 8px;
+    z-index: 10;
+}
+
+.container__project {
+    position: absolute;
+    color: whitesmoke;
+    font-family: sans-serif;
+    top: 0;
+    padding: 8px;
+    z-index: 10;
+    right: 8px;
+}
+
+.logo-container {
+    position: absolute;
+    top: -90px;
+    left: -40px;
+    margin: 15px;
+}
+
+.logo-container__logo {
+    width: 300px;
+    height: 300px;
+}
+
+/*////////////////////////////////////////   LOGIN    //////////////////////////////////*/
+
+.log-in {
+    width: 340px;
+    height: 400px;
+    background-color: var(--color-3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    border-radius: 15px;
+    border-top: var(--color-2) 7px solid;
+    color: whitesmoke;
+}
+
+.log-in__title {
+    font-size: 1.2rem;
+}
+
+.log-in__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 15px;
+    padding: 10px;
+}
+
+.log-in__form input[type="submit"]{
+    background-color: whitesmoke;
+    color: var(--color-3);
+}
