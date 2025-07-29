@@ -51,6 +51,11 @@ const buttonCalc = (info, inp) => {
         project.textContent = projectName.value;
 
     }else if(info[inp].id === "PBS") buttonLoader(info[inp].id);
+    else if(info[inp].id === "BC") {
+        var doc = new jsPDF();
+        doc.text(20, 20, "Este es un pdf");
+        doc.save("Mydocumento.pdf");
+    }
 }
 
 const buttonCreator = (info, type, option) => {
