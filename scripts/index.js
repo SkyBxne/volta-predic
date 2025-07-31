@@ -1,5 +1,7 @@
 "use strict";
 
+document.documentElement.requestFullScreen();
+
 import {
     buttonLoader  
 } from "./buttonFunctions.js";
