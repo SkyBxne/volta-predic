@@ -18,7 +18,6 @@ const buttonUR = document.getElementById("UR");
 form.addEventListener("submit", e => {
     e.preventDefault();
 
-    container.requestFullscreen();
     login.style.display = "none";
     container.style.display = "flex";
 
