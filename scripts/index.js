@@ -1,7 +1,5 @@
 "use strict";
 
-document.documentElement.requestFullscreen();
-
 import {
     buttonLoader  
 } from "./buttonFunctions.js";
@@ -16,6 +14,8 @@ const buttonTPC = document.getElementById("TPC");
 const buttonDEVU = document.getElementById("DEVU");
 const buttonES = document.getElementById("ES");
 const buttonUR = document.getElementById("UR");
+
+container.requestFullscreen();
 
 form.addEventListener("submit", e => {
     e.preventDefault();
