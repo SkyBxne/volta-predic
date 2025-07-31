@@ -16,45 +16,67 @@ const resultContainer = document.querySelector(".results-container__results");
 const warningContainer = document.querySelector(".results-container__warning");
 const button = document.querySelector(".buttons__save-btn");
 
-const buttonCalc = (info, inp) => {
-    if(info[inp].id === "DEVU") {
-        let results = equationTPC(getValues());
-        if(results == undefined) return;
+let thisResults = [];
+let basicResults;
+let advancedResults;
+let circuit;
+let pName;
 
-        let adv = messageCreator(results, info[inp].id);
+export const buttonCalc = (info, inp, b) => {
+    if(info[inp].id === "DEVU") {
+        basicResults = equationTPC(getValues());
+        if(basicResults == undefined) return;
+
+        let adv = messageCreator(basicResults, info[inp].id);
         let messages = [
-            `<p>Temperatura: <span class="yellow">${results[0]} °C</span></p>
-             <p>Vida util restante: <span class="yellow">${results[1]} años</span></p>`,
+            `<p>Temperatura: <span class="yellow">${basicResults[0]} °C</span></p>
+             <p>Vida util restante: <span class="yellow">${basicResults[1]} años</span></p>`,
              adv
         ];
+
         resultMessageGen(messages);
 
     }else if(info[inp].id === "ES") {
-        let results = equationES(getValues());
-        if(results == undefined) return;
+        advancedResults = equationES(getValues());
+        if(advancedResults == undefined) return;
 
-        let adv = messageCreator(results, info[inp].id);
+        let adv = messageCreator(advancedResults, info[inp].id);
         let messages = [
-            `<p>Temperatura (${results[3]}): <span class="yellow">${results[0]} °C</span></p>
-             <p>Degradacion: <span class="yellow">${results[1]}%</span></p>
-             <p>Costos por energia: <span class="yellow">${results[2]}$</span></p>`,
+            `<p>Temperatura (${advancedResults[3]}): <span class="yellow">${advancedResults[0]} °C</span></p>
+             <p>Degradacion: <span class="yellow">${advancedResults[1]}%</span></p>
+             <p>Costos por energia: <span class="yellow">${advancedResults[2]}$</span></p>`,
              adv
         ];
+
         resultMessageGen(messages);    
+
     }else if(info[inp].id === "BP") buttonLoader(info[inp].id);
     else if(info[inp].id == "BS") {
         const project = document.querySelector(".container__project");
         const projectName = document.querySelector(".I1");
+        const circuitName = document.querySelector(".I2");
 
-        console.log(projectName)
+        b.style.animation = "savedAnim .4s both ease-in-out";
+        setTimeout(() => {
+            b.style.animation = "none";
+        }, 500)
 
+        circuit = circuitName.value;
+        pName = projectName.value;
         project.textContent = projectName.value;
 
     }else if(info[inp].id === "PBS") buttonLoader(info[inp].id);
     else if(info[inp].id === "BC") {
-        var doc = new jsPDF();
-        doc.text(20, 20, "Este es un pdf");
-        doc.save("Mydocumento.pdf");
+        localStorage.setItem("name", pName);
+        localStorage.setItem("circuit", circuit);
+        localStorage.setItem("basic", thisResults[0]);
+        localStorage.setItem("advanced", thisResults[1]);   
+        
+        window.open("/pages/inform.html", "_blank");
+
+    }else if(info[inp].id === "SB") {
+        thisResults[0] = basicResults;
+        thisResults[1] = advancedResults;
     }
 }
 
@@ -126,7 +148,7 @@ const buttonCreator = (info, type, option) => {
             button.textContent = `${info[inp].content}`;
             button.setAttribute("id", info[inp].id);
             button.addEventListener("click", () => {
-                buttonCalc(info, inp);
+                buttonCalc(info, inp, button);
             });
             button.style.animation = "fadeIn .4s both ease-in-out";
             if(option == undefined) inputGroup.appendChild(button)
@@ -410,7 +432,7 @@ export const buttonLoader = type => {
                     project1: {
                         _name: {
                             type: "text",
-                            content: "Proyecto 1",
+                            content: "Maquinaria pesada de la empresa Polar",
                             ph: "",
                             id: "",
                             unit: "",
@@ -440,7 +462,7 @@ export const buttonLoader = type => {
                     project2: {
                         _name: {
                             type: "text",
-                            content: "Proyecto 2",
+                            content: "Maquinaria del hospital Razetti",
                             ph: "",
                             id: "",
                             unit: "",
@@ -470,7 +492,7 @@ export const buttonLoader = type => {
                     project3: {
                         _name: {
                             type: "text",
-                            content: "Proyecto 3",
+                            content: "Equipos electronicos de la residencia Puerto Bahia",
                             ph: "",
                             id: "",
                             unit: "",

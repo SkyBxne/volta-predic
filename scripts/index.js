@@ -20,6 +20,7 @@ form.addEventListener("submit", e => {
     
     login.style.display = "none";
     container.style.display = "flex";
+
     username.textContent = e.target[0].value;
 });
 

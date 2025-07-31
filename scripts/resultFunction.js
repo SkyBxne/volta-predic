@@ -1,5 +1,9 @@
 "use strict";
 
+import {
+    buttonCalc
+} from "./buttonFunctions.js";
+
 export const messageCreator = (results, type) => {
     if(type === "DEVU") {
         let a;
@@ -43,17 +47,33 @@ export const resultMessageGen = content => {
     const warning = document.querySelector(".results__result-warning");
     const container = document.querySelector(".container__results-container");
 
-    button.style.display = "flex";
-    button.style.animation = "fadeIn .4s both ease-in-out";
     container.style.justifyContent = "space-evenly";
 
     resultContainer.style.display = "flex";
     resultContainer.style.animation = "fadeIn .4s both ease-in-out";
     result.innerHTML = content[0];
 
-    if(content[1] == "o" || content[1] == undefined) return;
+    if(content[1] == "o" || content[1] == undefined) {
+        container.style.justifyContent = "center"
+        return;
+    }
+    button.style.display = "flex";
+    button.style.animation = "fadeIn .4s both ease-in-out";
+    button.addEventListener("click", () => {
+        button.style.animation = "savedAnim .4s both ease-in-out";
+        buttonCalc([{id: "SB"}], 0);
+        setTimeout(() => {
+            button.style.animation = "none";
+        }, 500);
+    });
+
     warningContainer.style.display = "flex";
     warningContainer.style.animation = "fadeIn .4s both ease-in-out";
     warning.innerHTML = content[1];
+
+    setTimeout(() => {
+        warningContainer.style.animation = "none";
+        resultContainer.style.animation = "none";
+    }, 500);
     
 }

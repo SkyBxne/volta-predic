@@ -29,6 +29,11 @@
 
 .buttons__save-btn {
     display: none;
+    margin-bottom: 0;
+}
+
+#BS {
+    margin-bottom: 0;
 }
 
 .yellow {
@@ -44,4 +49,17 @@
 .green {
     font-family: sans-serif;
     color: #40ff79;
+}
+
+@keyframes savedAnim {
+    0% {
+        background-color: whitesmoke;
+    }
+    50% {
+        background-color: #40ff79;
+
+    }
+    100% {
+        background-color: whitesmoke;
+    }
 }
