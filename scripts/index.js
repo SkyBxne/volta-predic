@@ -15,6 +15,10 @@ const buttonDEVU = document.getElementById("DEVU");
 const buttonES = document.getElementById("ES");
 const buttonUR = document.getElementById("UR");
 
+document.addEventListener("keydown", e => {
+    console.log(e.target);
+})
+
 form.addEventListener("submit", e => {
     e.preventDefault();
 
