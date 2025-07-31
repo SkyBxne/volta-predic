@@ -1,6 +1,6 @@
 "use strict";
 
-document.requestFullScreen();
+document.documentElement.requestFullscreen();
 
 import {
     buttonLoader  
